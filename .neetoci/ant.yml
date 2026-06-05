@@ -1,0 +1,12 @@
+---
+plan_slug: standard-2
+triggers:
+- event: branch
+  branch_name: main
+- event: pull_request
+commands:
+- checkout
+- neetoci-version java 1.8
+- sudo apt-get install -y ant
+- ant -noinput -buildfile build.xml
+- ant test
